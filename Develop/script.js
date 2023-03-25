@@ -1,7 +1,57 @@
+var inputvalue = $('.inputValue')
+var inputField = $(".inputField");
+// document.getElementById("myBtn").addEventListener("click", save)
+// // document.querySelector("#myBtn").addEventListener("click", save)
+// $("#myBtn").click(save)
+var now = dayjs()
+console.log(now["$H"])
+
+
+  //for(VARIABLE; CONDITION; AFTER){}
+  for(var hour = 9; hour <= 11; hour++){
+    if(hour > now["$H"]){
+
+      $("#hour-" + hour).addClass("future")
+      
+      }
+      else if(hour == now["$H"]){
+
+        $("#hour-" + hour).addClass("present")
+      }
+      else if (hour < now["$H"]){
+
+        $("#hour-" + hour).addClass("past")
+      }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
+
+  $(".saveBtn").click(function(){
+    console.log($(this))
+    console.log($(this).siblings("textarea").val())
+    })
+
+  $(".button").click( function () {
+  var inputValue = inputField.value
+  localStorage.setItem("info", inputValue);
+});
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -21,3 +71,10 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
+$(".inputField").keypress(function (event) {
+  if (event.key === "Enter"){
+  event.preventDefault();
+  button.click();
+}
+})
