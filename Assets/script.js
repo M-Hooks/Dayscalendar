@@ -1,5 +1,5 @@
-var lastinfo = localStorage.getItem("info");
-var previousLocation = localStorage.getItem("location");
+var Currinfo = localStorage.setItem("info");
+var Lastinfo = localStorage.getItem("Linfo");
 // document.getElementById("myBtn").addEventListener("click", save)
 // // document.querySelector("#myBtn").addEventListener("click", save)
 // $("#myBtn").click(save)
