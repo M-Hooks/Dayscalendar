@@ -1,5 +1,7 @@
-var inputvalue = $('.inputValue')
+var inputvalue = $('.inputValue');
 var inputField = $(".inputField");
+var lastinfo = localStorage.getItem("info");
+var previousLocation = localStorage.getItem("location");
 // document.getElementById("myBtn").addEventListener("click", save)
 // // document.querySelector("#myBtn").addEventListener("click", save)
 // $("#myBtn").click(save)
@@ -8,7 +10,7 @@ console.log(now["$H"])
 
 
   //for(VARIABLE; CONDITION; AFTER){}
-  for(var hour = 9; hour <= 11; hour++){
+  for(var hour = 0; hour <= 23; hour++){
     if(hour > now["$H"]){
 
       $("#hour-" + hour).addClass("future")
@@ -26,55 +28,39 @@ console.log(now["$H"])
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
+  if (previousLocation) {
+    inputField.value = previousLocation;
+  }
 
   $(".saveBtn").click(function(){
-    console.log($(this))
-    console.log($(this).siblings("textarea").val())
+    var inputValue = inputField.value
+    localStorage.setItem("location", inputValue);
+  });
+
+
+
+  // if (lastinfo){
+  //   inputField.value = lastinfo
+  // }
+
+  // $(".saveBtn").click(function(){
+  //   var here = ($(this).siblings("textarea").val())
+  //   var inputValue = inputField.value
+  //   localStorage.setItem(here,inputValue)
+  //   console.log($(this).siblings("textarea").val())
     })
 
-  $(".button").click( function () {
-  var inputValue = inputField.value
-  localStorage.setItem("info", inputValue);
-});
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
-});
+// });
+ 
+;
 
 $(".inputField").keypress(function (event) {
   if (event.key === "Enter"){
   event.preventDefault();
   button.click();
 }
-})
+}) 
