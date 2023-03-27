@@ -1,4 +1,4 @@
-var Currinfo = localStorage.setItem("info");
+var Currinfo = localStorage.getItem("info");
 var Lastinfo = localStorage.getItem("Linfo");
 // document.getElementById("myBtn").addEventListener("click", save)
 // // document.querySelector("#myBtn").addEventListener("click", save)
@@ -29,8 +29,8 @@ $(function () {
 
   $(".saveBtn").click(function(){
       console.log($(this).siblings("textarea").val())
-    // var inputValue = inputField.value
-    // localStorage.setItem(here,inputValue)
+    // var Currinfo = Lastinfo.value
+      localStorage.setItem(this,Lastinfo)
     // console.log($(this).siblings("textarea").val())
     })})
 
@@ -43,3 +43,4 @@ $(".inputField").keypress(function (event) {
 }
 }) 
 
+// .addEventListener("click", Lastinfo);
