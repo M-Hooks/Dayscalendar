@@ -1,5 +1,3 @@
-var inputvalue = $('.inputValue');
-var inputField = $(".inputField");
 var lastinfo = localStorage.getItem("info");
 var previousLocation = localStorage.getItem("location");
 // document.getElementById("myBtn").addEventListener("click", save)
@@ -27,35 +25,15 @@ console.log(now["$H"])
   }
 
 
-
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
 $(function () {
-  if (previousLocation) {
-    inputField.value = previousLocation;
-  }
 
   $(".saveBtn").click(function(){
-    var inputValue = inputField.value
-    localStorage.setItem("location", inputValue);
-  });
+      console.log($(this).siblings("textarea").val())
+    // var inputValue = inputField.value
+    // localStorage.setItem(here,inputValue)
+    // console.log($(this).siblings("textarea").val())
+    })})
 
-
-
-  // if (lastinfo){
-  //   inputField.value = lastinfo
-  // }
-
-  // $(".saveBtn").click(function(){
-  //   var here = ($(this).siblings("textarea").val())
-  //   var inputValue = inputField.value
-  //   localStorage.setItem(here,inputValue)
-  //   console.log($(this).siblings("textarea").val())
-    })
-
-// });
- 
 ;
 
 $(".inputField").keypress(function (event) {
@@ -64,3 +42,4 @@ $(".inputField").keypress(function (event) {
   button.click();
 }
 }) 
+
